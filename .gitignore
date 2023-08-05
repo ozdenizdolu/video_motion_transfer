@@ -1,0 +1,5 @@
+input_folder
+motion_folder
+output_folder
+__pycache__
+.vs
