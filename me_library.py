@@ -44,7 +44,10 @@ class MEstimator:
 
         # carry pixels using these flow vectors
         imgTview = self.imgT.view(dtype=[("b", "uint8"), ("g", "uint8"), ("r", "uint8")]).squeeze(2)
-        final_indices = self.indices.astype("int32") + flow.round().astype("int32")
+        final_indices = self.indices.astype("int32")
+        flow_int_round = flow.round().astype("int32")
+        final_indices[:,:,0] = final_indices[:,:,0] + flow_int_round[:,:,1]
+        final_indices[:,:,1] = final_indices[:,:,1] + flow_int_round[:,:,0]
         final_indices_X = final_indices[:,:, 0]
         final_indices_Y = final_indices[:,:, 1]
 
