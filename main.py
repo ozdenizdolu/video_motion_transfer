@@ -10,5 +10,5 @@ opts = {
     "input_folder": "./input_folder",
     "output_folder": "./output_folder"
 }
-me = MEstimator(*opts)
+me = MEstimator(**opts)
 me.batch_process()
